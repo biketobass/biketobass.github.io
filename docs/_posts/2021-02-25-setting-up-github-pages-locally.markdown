@@ -26,8 +26,11 @@ To start, I followed the steps in the GitHub documentation for [creating a GitHu
 
 * Step 15 gave me some trouble. When I ran `git push -u origin BRANCH`, I received the error: `error: failed to push some refs to` my repository. After some digging I realized that it's because when I originally created the repository on GitHub, I made some changes and committed them on GitHub. Those changes never got integrated with the new repository I created locally which caused git to throw the error.
 
-* To fix the problem, I ran `git pull --rebase origin main`.
+* To fix the problem, I ran `git pull --rebase origin main`, but that only solved part of the problem. When I first ran `git push -u origin main`, I received the message, "Everything up-to-date."
 
-* After that `git push -u origin BRANCH` worked perfectly.
+* To fix this I had to use `git add`, `git commit`, then `git push` as follows from my top level repository directory:
+  - `git add docs`
+  - `git commit -m "commit message"`
+  - `git push -u origin main`
 
-* In step 16 I chose the docs folder as my publishing source.
+* In step 16 I chose the docs folder as my publishing source and the site worked!
