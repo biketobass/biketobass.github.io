@@ -34,3 +34,5 @@ To start, I followed the steps in the GitHub documentation for [creating a GitHu
   - `git push -u origin main`
 
 * In step 16 I chose the docs folder as my publishing source and the site worked!
+
+* Finally, each time I make changes to a file on the site, I `git add` the new or modified file, commit it, and then push it.
