@@ -33,7 +33,14 @@ Section B is where you create your application. The first step is just to create
 * an authorization token which changes every six hours
 * a refresh token which your code will use to get a new authorization token after it expires
 
-Note that you will need to name your application. This doesn't have to be an application that you plan to distribute, and you can name it anything you want. You will also need to specify a website for your app and an Authorization Callback Domain. For our purposes the website can be anything and doesn't even need to be real. The Authorization Callback Domain should be localhost.
+Here's what you will do in Steps 2 and 3:
+* Go to [https://www.strava.com/settings/api](https://www.strava.com/settings/api) which will take you to the **My API Application** page.
+* On that page choose a category for your application (whatever you want)
+* Leave Club blank (unless you have a reason not to)
+* Note your Client ID, Client Secret, Access Token, and Refresh Token
+* Specify a name for your application. You can name it practically anything you want, but there are a few guidelines that you have to follow. For example, it can't have Strava in the name.
+* Specify a website for your app. This can be anything and doesn't even need to be real. It does, however, need to be a correctly formatted URL (https://www.example-app-website.com). Don't forget the "https://".
+* Specify an Authorization Callback Domain. For our purposes, this should be localhost.
 
 You can skip Section C.
 
@@ -41,9 +48,11 @@ Section D describes the OAuth 2.0 authorization process. It's not as complicated
 `http://www.strava.com/oauth/authorize?client_id=[REPLACE_WITH_YOUR_CLIENT_ID]&response_type=code&redirect_uri=http://localhost/exchange_token&approval_prompt=force&scope=profile:read_all,activity:read_all`
 The difference between this URL and the one in Strava's example is in the scope requested at the end of the link. The link above allows your application to read all of your activities and your profile. For more details, check out Strava's [authentication documentation](https://developers.strava.com/docs/authentication/).
 
-Step 11 is where you exchange the authorization code and scope for tokens. Rather than do what it says in Step 11, you can use my file `get_strava_tokens.py`.
+In Step 10 you will copy your authorization code.
 
-Edit `get_strava_tokens.py`. Replace the `client_id`, `client_secret`, and `code` fields in the dictionary called `secret_stuff` (first line of uncommented code) with your ID, secret, and authorization code respectively. The ID is an integer; the other two are strings.
+At this point don't go to Step 11. That's where you exchange the authorization code and scope for tokens. Instead, use my file `get_strava_tokens.py`.
+
+Edit `get_strava_tokens.py`. Replace the `client_id`, `client_secret`, and `code` fields in the dictionary called `secret_stuff` (first line of uncommented code) with your ID, secret, and authorization code (which you received at the end of Step 10 above). The ID is an integer; the other two are strings.
 
 Make sure that you have the `requests` package installed and then run:
 
