@@ -15,13 +15,13 @@ I've been using Strava to track my bike rides and other activities since the fal
 * produce a CSV file for each activity type with summary stats by year
 * use past performance to predict the average speed of a route based on its distance and elevation gain
 
-I plan to add to the code as I think of features I want, but for now here's the link to the [GitHub repository](link) where it resides. You are welcome to download it and use it and/or adapt it to suit your needs. The trickiest part is Strava's OAuth 2.0 process which I describe next. Fortunately, you only need to go through that process once.
+I plan to add to the code as I think of features I want, but for now here's the link to the [GitHub repository](https://github.com/biketobass/strava-analysis) where it resides. You are welcome to download it and use it and/or adapt it to suit your needs. The trickiest part is Strava's OAuth 2.0 process which I describe next. Fortunately, you only need to go through that process once.
 
 I should mention that this [article](https://medium.com/swlh/using-python-to-connect-to-stravas-api-and-analyse-your-activities-dummies-guide-5f49727aac86) helped me understand how to access the Strava API.
 
 # Getting Authorization
 
-Before you do anything else, you will need to go through Strava's OAuth 2.0 process to get what are called access and refresh tokens in order to access your data on Strava. The file `get_strava_tokens.py` in my [GitHub repository](link) helps with this process.
+Before you do anything else, you will need to go through Strava's OAuth 2.0 process to get what are called access and refresh tokens in order to access your data on Strava. The file `get_strava_tokens.py` in my [GitHub repository](https://github.com/biketobass/strava-analysis) helps with this process.
 
 Before you run `get_strava_tokens.py`, go to the [Strava Developer site](https://developers.strava.com/). There you will tell Strava about your code so that Strava can authorize it.
 
