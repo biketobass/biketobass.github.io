@@ -88,7 +88,7 @@ As long as you don't delete `strava-activities.csv`, the next time you create an
 
 If you'd like see to what profile information Strava stores for you, uncomment the next line of code in `get_strava_activities.py`. Now running it will produce a file called `profile.csv` which contains all of the your profile information.
 
-Finally, if you are a cyclist and want a prediction of your average speed given the distance and total elevation gain of a route, run the method `predict_avg_speed()`. Uncommenting the first call of this method in `get_strava_activities.py` runs an example in Imperial units (feet of elevation gain and miles of distance). The second call is the same ride but in metric units (meters of elevation gain and kilometers of distance).  See below for more details about this method.
+Finally, if you are a cyclist and want a prediction of your average speed given the distance and total elevation gain of a route, run the method `predict_avg_speed()`. Uncommenting the first call of this method in `get_strava_activities.py` runs an example in Imperial units (feet of elevation gain and miles of distance). The second call is the same ride but in metric units (meters of elevation gain and kilometers of distance).  See below for more details about this method. **Edit 7/15/2021: This method now works for arbitary activity types. See the README for details.**
 
 # How the Code Works
 
@@ -125,6 +125,8 @@ It's also possible to filter the data that is used in the generation of the mode
 You can also specify a year in which to start the model. I'd like to think that I'm faster now in 2021 than I was in 2015 and so choose either 2020 or 2021 as my model start year so that the models don't factor in my earlier, slower rides.
 
 Lastly, there are two fudge factors that the third model uses to define what similar rides are. These are `dist_fudge` and `elev_fudge`. The defaults are both 0.1. This means that a ride is considered similar if it has a distance and average elevation gain within plus or minus 10% of the those of the ride you are interested in. I find that 0.1 often works well, but for some distance and elevation profiles it only generates a few similar rides. In that case, I increase the factor somewhat.
+
+**Edit 7/15/2021: This method now works for arbitary activity types. See the README for details.**
 
 
 
