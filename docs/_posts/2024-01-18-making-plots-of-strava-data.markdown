@@ -66,10 +66,10 @@ Similarly, here's how many feet of elevation gain I've climbed pear year.
 ![Bar chart comparing ride elevation gain by year](Ride_elevation_gain(ft)_bar_by_year.png)
 
 
-The next figure shows my distance information but by season per year.![Bar chart comparing ride distance per season per year](Ride_distance\(miles\)_bar_by_year_season.png)
+The next figure shows my distance information but by season per year.![Bar chart comparing ride distance per season per year](Ride_distance(miles)_bar_by_year_season.png)
 My season with the most miles was summer 2021 with 2,545 miles.
 
-Here is the breakdown by month per year.![Bar chart comparing ride distance per month per year](Ride_distance\(miles\)_bar_by_year_month.png)
+Here is the breakdown by month per year.![Bar chart comparing ride distance per month per year](Ride_distance(miles)_bar_by_year_month.png)
 
 So far the most I've ridden in a month is 907 miles which happened in July of 2023.
 
@@ -77,7 +77,7 @@ If the above is too crowded, you can show a subset of years by defining `year_li
 ```
 sa.make_activity_figures(activity_list=['Ride'], year_list=[2020, 2021, 2022, 2023], metric=False)
 ```
-which produces this chart.![Bar chart comparing ride distance per month per year for years 2020-2024](Ride_distance\(miles\)_bar_by_year_month_2020_2021_2022_2023.png)
+which produces this chart.![Bar chart comparing ride distance per month per year for years 2020-2024](Ride_distance(miles)_bar_by_year_month_2020_2021_2022_2023.png)
 
 For brevity I have not included the charts for elevation gain for seasons and months, but `StravaAnalyzer.make_activity_figures` automatically produces those too.
 
