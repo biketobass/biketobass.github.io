@@ -30,7 +30,7 @@ To produce a chart that shows the breakdown of moving time across all of the act
 sa.make_combined_pie_chart(2023)
 ```
 
-Here are my results. Given my love of cycling, it's no surprise that cycling and virtual cycling make up the vast majority of my moving time.![Pie chart showing my moving time breakdown by activity type in 2023](./images/all_acts_pie_2023.png)
+Here are my results. Given my love of cycling, it's no surprise that cycling and virtual cycling make up the vast majority of my moving time.![Pie chart showing my moving time breakdown by activity type in 2023](/images/all_acts_pie_2023.png)
 
 
 If you want to see the breakdown since you started using Strava, leave the year out.
