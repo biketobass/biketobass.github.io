@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Making Plots from my Strava Data
+title: Making Plots of Strava Data
 date: 2024-01-18 10:30:00 -0500
 categories: computer python software data strava fitness datascience
 tag: strava
