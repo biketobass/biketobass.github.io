@@ -16,6 +16,14 @@ The code addition is a method in the `Eia` class called `map_electric_plants`. I
 
 And here is a [dynamic version of the same map](/assets/open_street_map.html).
 
+The code I used to generate the above two maps is
+```
+data_getter = eia.Eia()
+data_getter.map_electric_plants(facets={'stateid':['MA']}, mapbox=False, open_street=True,
+                                static_fig_title="Map of Electric Power Plants in Massachusets<br><sup>Size Represents Nameplate Capacity</sup>",
+                                dynamic_fig_title="Map of Electric Power Plants in Massachusets<br><sup>Size Represents Nameplate Capacity<br>(hover for details)</sup>")
+```
+
 # OpenStreetMap vs Mapbox
 
 The maps above use [OpenStreetMap](https://www.openstreetmap.org/) map data as the base map. This is the default and convenient since OpenStreetMap does not require an API token.
@@ -43,6 +51,23 @@ And here is a [dynamic version of the Mapbox map](/assets/mapbox_map.html).
 - `mapbox_file_name`: Just like the above but with regard to Mapbox
 - `static_width`: The width of the static image. You may need to adjust from the default depending on the region.
 - `static_height`: The height of the static image. You may need to adjust from the default depending on the region.
+
+# Another Example - All of New England
+
+Here are [an interactive map](/assets/open_street_NE_electric.html) and a static map showing of all of the electric plants in New England.
+
+![Static map of electrical plants in New England using OpenStreetMap data](/assets/open_street_NE_electric.png).
+
+This is the code I used to generate them:
+```
+data_getter.map_electric_plants(facets={'stateid':['MA', "NH", "CT", "ME", "VT", "RI"]}, mapbox=False, open_street=True,
+                                open_street_file_name="open_street_NE_electric",
+                                static_fig_title="Map of Electric Power Plants in New England<br><sup>Size Represents Nameplate Capacity</sup>",
+                                dynamic_fig_title="Map of Electric Power Plants in New England<br><sup>Size Represents Nameplate Capacity<br>(hover for details)</sup>",
+                                init_zoom=5.5)
+```
+
+Note that I lowered the initial zoom level to fit most of region. Depsite that, the top of Maine is still cut off.
 
 
 
