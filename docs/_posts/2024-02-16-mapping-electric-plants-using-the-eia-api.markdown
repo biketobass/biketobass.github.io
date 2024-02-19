@@ -8,7 +8,7 @@ tag: eia
 
 # Mapping Electicity Plants
 
-I have been trying to gain a better understanding of where the electricity that enters my home originates. As part of that, I began exploring the U.S. Energy Administration's API which provides a wide variety of US energy data. In a [post from earlier this month](https://biketobass.github.io/computer/python/eia/api/software/data/datascience/2024/02/01/using-the-eia-api.html), I describe the [Python code available on GitHub](https://github.com/biketobass/eia-api) that I wrote to access that API. In this post, I describe an addition to that code that maps all of the electric plants within a region and visually shows both the type of fuel used at each plant and its nameplate capacity (intended full-load output).
+I have been trying to gain a better understanding of where the electricity that enters my home originates. As part of that, I began exploring the U.S. Energy Administration's API which provides a wide variety of US energy data. In a [post from earlier this month](https://biketobass.github.io/computer/python/eia/api/software/data/datascience/2024/02/01/using-the-eia-api.html), I describe the [Python code available on GitHub](https://github.com/biketobass/eia-api) that I wrote to access that API. In this post, I describe an addition to that code that maps all of the electric plants within a region and indicates by color and size the type of fuel used and nameplate capacity respectively at each plant.
 
 The code addition is a method in the `Eia` class called `map_electric_plants`. It takes a region specified by a list of facets (see [my earlier post](https://biketobass.github.io/computer/python/eia/api/software/data/datascience/2024/02/01/using-the-eia-api.html) for a dicussion of facets) and outputs both static (PNG) and dynamic (HTML) [Plotly Express scatter_mapbox](https://plotly.com/python/scattermapbox/) images. Below is an example of a static map of the electric plants in Massachusetts. 
 
@@ -16,7 +16,7 @@ The code addition is a method in the `Eia` class called `map_electric_plants`. I
 
 And here is a [dynamic version of the same map](/assets/open_street_map.html).
 
-The code I used to generate the above two maps is
+Along with the `Eia` class [(available here)](https://github.com/biketobass/eia-api) that I defined, the code I used to generate the above two maps is
 ```
 data_getter = eia.Eia()
 data_getter.map_electric_plants(facets={'stateid':['MA']}, mapbox=False, open_street=True,
@@ -28,9 +28,9 @@ data_getter.map_electric_plants(facets={'stateid':['MA']}, mapbox=False, open_st
 
 The maps above use [OpenStreetMap](https://www.openstreetmap.org/) map data as the base map. This is the default and convenient since OpenStreetMap does not require an API token.
 
-It is also possible to use [Mapbox](https://www.mapbox.com/) map data by setting the `mapbox` flag to `True`. To use Mapbox, however, you first need to register with Mapbox for an API token and add it to the `api_json` file as described in the README of my [repository](https://github.com/biketobass/eia-api).
+It is also possible to use [Mapbox](https://www.mapbox.com/) map data by setting the `mapbox` flag in `Eia.map_electric_plants` to `True` as long as you have a Mapbox API token. To register for one just create an account with Mapbox. Once you have the token, add it to the `api_json` file as described in the README of my [EIA repository](https://github.com/biketobass/eia-api) before running `Eia.map_electric_plants`.
 
-Here is what the same static map looks like using Mapbox.
+Here is what the static map from above looks like using Mapbox.
 
 ![Static map of electrical plants in Massachusetts using Mapbox data](/assets/mapbox_map.png)
 
@@ -67,7 +67,7 @@ data_getter.map_electric_plants(facets={'stateid':['MA', "NH", "CT", "ME", "VT",
                                 init_zoom=5.5)
 ```
 
-Note that I lowered the initial zoom level to fit most of region. Depsite that, the top of Maine is still cut off.
+Note that I lowered the initial zoom level to fit most of region.
 
 
 
